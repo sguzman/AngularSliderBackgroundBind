@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <base href="/">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body [ngStyle]="changeStyle()">
+    <div class="container-fluid">
+      <h1 [ngStyle]="changeHeaderColor()">
+        {{title}}
+      </h1>
+      <div class="jumbotron">
+        <div class="row red well">
+          <label for="rslider">Red at {{redSlider}}</label>
+          <input type="range" id="rslider" value="0" [(ngModel)]="redSlider"/>
+        </div>
+        <div class="row blue well">
+          <label for="bslider">Blue at {{blueSlider}}</label>
+          <input type="range" id="bslider" value="0" [(ngModel)]="blueSlider"/>
+        </div>
+        <div class="row green well">
+          <label for="gslider">Green at {{greenSlider}}</label>
+          <input type="range" id="gslider" value="0" [(ngModel)]="greenSlider"/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
