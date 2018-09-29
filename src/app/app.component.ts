@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title: string = "Slider Background Bind";
+  title = 'Slider Background Bind';
 
   redSlider: number;
   blueSlider: number;
   greenSlider: number;
+
+  static normalize(n): number {
+    return (n / 100) * 255;
+  }
 
   ngOnInit(): void {
     this.redSlider = 0;
@@ -18,15 +22,15 @@ export class AppComponent implements OnInit {
     this.greenSlider = 0;
   }
 
-  normalize(n): number {
-      return (n / 100) * 255;
-  }
-
   changeHeaderColor(): any {
-      return { 'color' : `rgb(${256 - this.normalize(this.redSlider)},${256 - this.normalize(this.blueSlider)},${256 - this.normalize(this.greenSlider)})` }
+      return { 'color' :
+          `rgb(${256 - AppComponent.normalize(this.redSlider)}` +
+          `,${256 - AppComponent.normalize(this.blueSlider)},${256 - AppComponent.normalize(this.greenSlider)})` };
   }
 
   changeStyle(): any {
-    return { 'background' : `rgb(${this.normalize(this.redSlider)},${this.normalize(this.blueSlider)},${this.normalize(this.greenSlider)})` }
+    return { 'background' :
+        `rgb(${AppComponent.normalize(this.redSlider)}` +
+        `,${AppComponent.normalize(this.blueSlider)},${AppComponent.normalize(this.greenSlider)})` };
   }
 }
